@@ -56,7 +56,10 @@ export const SignIn = (): ReactElement => {
               </div>
               <h1 className="text-center text-xl font-bold">
                 {t('pages.signIn.welcome')}{' '}
-                <span className="text-nowrap">AGENDA CONTATTO</span>.
+                <span className="text-nowrap">
+                  Agenda Contas a Pagar/Fiscal
+                </span>
+                .
               </h1>
             </header>
 
