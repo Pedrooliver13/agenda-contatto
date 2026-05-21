@@ -4,10 +4,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Node
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/Pedrooliver13/casino-app.git
+$ git clone https://github.com/Pedrooliver13/agenda-contatto.git
 
 # Go into the repository
-$ cd casino-app
+$ cd agenda-contatto
 
 # Install dependencies
 $ npm install or yarn install
