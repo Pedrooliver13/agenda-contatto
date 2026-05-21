@@ -42,7 +42,7 @@ export const Dashboard = (): ReactElement => {
           content={data?.length ?? 0}
         />
 
-        <section className="flex gap-4">
+        <section className="flex flex-col gap-4 md:flex-row">
           <div className="flex flex-1 flex-col gap-2 rounded-2xl border border-border/60 bg-primary/5 p-5 shadow-lg">
             <h1 className="flex items-center gap-2 text-xl font-bold">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-accent-foreground">
@@ -60,7 +60,7 @@ export const Dashboard = (): ReactElement => {
             </Box>
           </div>
 
-          <div className="flex h-fit w-full max-w-[45%] flex-col gap-2 rounded-2xl border border-border/60 bg-primary/5 p-5 shadow-lg">
+          <div className="flex h-fit w-full flex-col gap-2 rounded-2xl border border-border/60 bg-primary/5 p-5 shadow-lg md:max-w-[45%]">
             <h1 className="flex items-center gap-2 text-xl font-bold">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-accent-foreground">
                 <AlarmClockIcon size={24} />

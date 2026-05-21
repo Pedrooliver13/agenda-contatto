@@ -12,8 +12,6 @@ interface AuthGuardProps {
 export function AuthGuard({ children }: AuthGuardProps) {
   const { isUserLoggedIn } = useGlobalContext();
 
-  console.log('isUserLoggedIn', isUserLoggedIn);
-
   if (!isUserLoggedIn) {
     return <Navigate to="/sign-in" replace />;
   }
