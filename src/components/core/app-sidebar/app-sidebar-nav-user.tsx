@@ -18,20 +18,21 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar';
 
-// Hooks
-import { useAuthContext } from '@/hooks/use-auth';
+// Contexts
+import { useGlobalContext } from '@/contexts/globalContext';
 
-export function AppSidebarNavUser({
-  user,
-}: {
-  user: {
-    name: string;
-    email: string;
-    avatar: string;
-  };
-}) {
-  const { signOut } = useAuthContext();
+// Hooks
+import { useSignOut } from '@/hooks/login/useSignOut';
+
+export function AppSidebarNavUser() {
   const { isMobile } = useSidebar();
+  const { currentUser } = useGlobalContext();
+
+  const { mutateAsync: signOut } = useSignOut();
+
+  const handleClickSignOut = async () => {
+    await signOut();
+  };
 
   return (
     <SidebarMenu>
@@ -43,12 +44,17 @@ export function AppSidebarNavUser({
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg">SN</AvatarFallback>
+                <AvatarImage
+                  src={currentUser?.email}
+                  alt={currentUser?.email}
+                />
+                <AvatarFallback className="rounded-lg"></AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold">{user.name}</span>
-                <span className="truncate text-xs">{user.email}</span>
+                <span className="truncate font-semibold">
+                  {currentUser?.email}
+                </span>
+                <span className="truncate text-xs">{currentUser?.email}</span>
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
@@ -63,21 +69,29 @@ export function AppSidebarNavUser({
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">SN</AvatarFallback>
+                  <AvatarImage
+                    src={currentUser?.email}
+                    alt={currentUser?.email}
+                  />
+                  <AvatarFallback className="rounded-lg"></AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">{user.name}</span>
-                  <span className="truncate text-xs">{user.email}</span>
+                  <span className="truncate font-semibold">
+                    {currentUser?.email}
+                  </span>
+                  <span className="truncate text-xs">{currentUser?.email}</span>
                 </div>
               </div>
             </DropdownMenuLabel>
 
             <DropdownMenuSeparator />
 
-            <DropdownMenuItem onClick={signOut} className="cursor-pointer">
+            <DropdownMenuItem
+              className="cursor-pointer"
+              onClick={handleClickSignOut}
+            >
               <LogOut />
-              Log out
+              Sair
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

@@ -19,7 +19,7 @@ import { Badge } from '@/components/ui/badge';
 import { Select } from '@/components/core/select';
 
 // Hooks
-import { useGetAllUsers } from '../../hooks/users/use-get-all-users';
+// import { useGetAllUsers } from '../../hooks/users/use-get-all-users';
 
 // Libs
 import { cn } from '@/libs/utils';
@@ -34,8 +34,7 @@ export const Users = (): ReactElement => {
   const { t } = useTranslation();
   const {
     control,
-    watch,
-    handleSubmit,
+    // watch,
     formState: { isSubmitting },
   } = useForm({
     values: {
@@ -48,13 +47,6 @@ export const Users = (): ReactElement => {
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10,
-  });
-
-  const { data, isFetching, refetch } = useGetAllUsers({
-    search: watch('search'),
-    affiliation: watch('affiliation'),
-    page: pagination.pageIndex + 1,
-    limit: pagination.pageSize,
   });
 
   const handleViewUser = (id: string) => {
@@ -74,10 +66,7 @@ export const Users = (): ReactElement => {
           <h1 className="text-lg">{t('pages.users.allUsers')}</h1>
         </header>
 
-        <form
-          onSubmit={handleSubmit(() => refetch())}
-          className="flex items-center gap-2"
-        >
+        <form className="flex items-center gap-2">
           <Select
             name="affiliation"
             control={control}
@@ -132,10 +121,11 @@ export const Users = (): ReactElement => {
 
         <DataTable
           id="data-table-users"
-          data={data?.data?.docs || []}
+          data={[]}
           enableSortingRemoval
-          isLoading={isFetching}
-          pageCount={data?.data.totalPages || 0}
+          // isLoading={isFetching}
+          // pageCount={data?.data.totalPages || 0}
+          pageCount={0}
           pagination={pagination}
           onPaginationChange={setPagination}
           columns={[

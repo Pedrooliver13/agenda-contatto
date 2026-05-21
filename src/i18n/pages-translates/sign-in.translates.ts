@@ -1,6 +1,6 @@
 export const signInTranslates = {
   pt: {
-    welcome: 'Bem-vindo ao',
+    welcome: 'Bem-vindo à',
     email: 'E-mail',
     password: 'Senha',
     tenant: 'Tenant',

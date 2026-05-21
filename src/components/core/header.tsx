@@ -43,11 +43,8 @@ export const Header = ({ className, fixed, ...props }: HeaderProps) => {
       <SidebarTrigger variant="outline" className="scale-125 sm:scale-100" />
       <Separator orientation="vertical" className="h-6" />
       <div className="flex w-full items-center justify-between">
-        <div className="flex items-center gap-2">
-          Dopabet
-          <span className="hidden text-xs text-gray-500 md:inline-block">
-            ({t('since')} 01/04/2025)
-          </span>
+        <div className="flex items-center gap-2 text-xl font-bold">
+          {t('pages.dashboard.welcome')}! ✨
         </div>
 
         <div className="flex gap-2">

@@ -10,7 +10,7 @@ import { Toaster } from '@/components/ui/toaster';
 // Contexts
 import { ThemeProvider } from '@/contexts/theme-provider';
 import { LanguageProvider } from '@/contexts/language-context';
-import { AuthProvider } from '@/contexts/auth-context';
+import { GlobalProvider } from './contexts/globalContext';
 
 // Routes
 import { Router } from '@/router/routes';
@@ -26,15 +26,15 @@ export const App = () => {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
 
-      <ThemeProvider defaultTheme="dark" storageKey="casino:theme">
+      <ThemeProvider defaultTheme="light" storageKey="agenda-contatto:theme">
         <HelmetProvider>
           <LanguageProvider>
-            <Helmet titleTemplate="%s | casino.app" />
+            <Helmet titleTemplate="%s | Agenda-Contatto-Hub.app" />
 
             <BrowserRouter>
-              <AuthProvider>
+              <GlobalProvider>
                 <Router />
-              </AuthProvider>
+              </GlobalProvider>
             </BrowserRouter>
 
             <Toaster />

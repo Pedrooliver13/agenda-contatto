@@ -1,4 +1,4 @@
 export const storageKeys = {
-  accessToken: 'casino:accessToken',
-  refreshToken: 'casino:refreshToken',
+  accessToken: 'agenda-contatto:accessToken',
+  refreshToken: 'agenda-contatto:refreshToken',
 };

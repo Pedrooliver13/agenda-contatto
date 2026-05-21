@@ -5,6 +5,7 @@ import { initReactI18next } from 'react-i18next';
 // i18n
 import { signInTranslates } from '@/i18n/pages-translates/sign-in.translates';
 import { usersTranslates } from '@/i18n/pages-translates/users.translates';
+import { dashboardTranslates } from '@/i18n/pages-translates/dashboard.translates';
 import { appSidebarTranslates } from '@/i18n/components-translates/app-sidebar.translates';
 import { dataTableTranslates } from '@/i18n/components-translates/data-table.translates';
 import { themeToggleTranslates } from '@/i18n/components-translates/theme-toggle.translates';
@@ -30,6 +31,7 @@ const resources = {
       pages: {
         signIn: signInTranslates.pt,
         users: usersTranslates.pt,
+        dashboard: dashboardTranslates.pt,
       },
     },
   },
@@ -52,6 +54,7 @@ const resources = {
       pages: {
         signIn: signInTranslates.en,
         users: usersTranslates.en,
+        dashboard: dashboardTranslates.en,
       },
     },
   },
@@ -74,6 +77,7 @@ const resources = {
       pages: {
         signIn: signInTranslates.fr,
         users: usersTranslates.fr,
+        dashboard: dashboardTranslates.fr,
       },
     },
   },
@@ -81,7 +85,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'en',
+  lng: 'pt',
   interpolation: {
     escapeValue: false,
   },

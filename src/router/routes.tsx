@@ -5,8 +5,7 @@ import { ReactElement } from 'react';
 // Pages
 import { SignIn } from '@/pages/sing-in/sign-in';
 import { Dashboard } from '@/pages/dashboard/dashboard';
-import { Users } from '@/pages/users/users';
-import { UserShow } from '@/pages/users/[id]/userShow';
+import { Timelines } from '@/pages/timelines/timelines';
 
 // Components
 import { AuthLayout } from '@/components/layouts/auth-layout';
@@ -25,8 +24,7 @@ export const Router = (): ReactElement => (
       }
     >
       <Route path="/" element={<Dashboard />} />
-      <Route path="/users" element={<Users />} />
-      <Route path="/users/:id" element={<UserShow />} />
+      <Route path="/agendas" element={<Timelines />} />
     </Route>
 
     <Route element={<AuthLayout />}>

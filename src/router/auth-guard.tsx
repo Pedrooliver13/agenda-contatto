@@ -1,18 +1,20 @@
-// Hooks
-import { useAuthContext } from '@/hooks/use-auth';
-
 // Packages
 import { Navigate } from 'react-router-dom';
 
+// Contexts
+import { useGlobalContext } from '@/contexts/globalContext';
+
 interface AuthGuardProps {
-  isPrivate: boolean;
+  isPrivate?: boolean;
   children: React.ReactNode;
 }
 
-export function AuthGuard({ isPrivate, children }: AuthGuardProps) {
-  const { signedIn } = useAuthContext();
+export function AuthGuard({ children }: AuthGuardProps) {
+  const { isUserLoggedIn } = useGlobalContext();
 
-  if (!signedIn && isPrivate) {
+  console.log('isUserLoggedIn', isUserLoggedIn);
+
+  if (!isUserLoggedIn) {
     return <Navigate to="/sign-in" replace />;
   }
 

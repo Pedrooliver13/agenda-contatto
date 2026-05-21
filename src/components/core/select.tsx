@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/select';
 
 interface SelectProps<T extends FieldValues> {
+  className?: string;
   control: Control<T>;
   name: Path<T>;
   label?: string;
@@ -28,15 +29,15 @@ export const Select = <T extends FieldValues = FieldValues>(
   const id = useId();
 
   return (
-    <div className="*:not-first:mt-2">
+    <div className={`*:not-first:mt-2 ${props?.className || ''}`}>
       {props?.label && <Label htmlFor={id}>{props?.label}</Label>}
       <Controller
         control={props?.control}
         name={props.name}
         render={({ field: { ref: _ref, ...fieldProps } }) => (
           <SelectShadcn onValueChange={fieldProps.onChange} {...fieldProps}>
-            <SelectTrigger className="w-fit whitespace-nowrap">
-              <SelectValue placeholder="Select number of results" />
+            <SelectTrigger className="w-full whitespace-nowrap">
+              <SelectValue placeholder="Escolha uma opção" />
             </SelectTrigger>
 
             <SelectContent className="[&_*[role=option]>span]:end-2 [&_*[role=option]>span]:start-auto [&_*[role=option]]:pe-8 [&_*[role=option]]:ps-2">

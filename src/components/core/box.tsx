@@ -5,15 +5,15 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { ElementType, ReactNode } from 'react';
 
 type BoxProps = {
-  loading: boolean;
+  loading?: boolean;
   as?: ElementType;
   children: ReactNode;
   className?: string;
 };
 
 export function Box({
-  loading,
-  as: Component = 'span',
+  loading = false,
+  as: Component = 'div',
   children,
   className,
 }: BoxProps) {

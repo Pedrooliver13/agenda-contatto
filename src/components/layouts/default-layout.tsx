@@ -11,12 +11,12 @@ export const DefaultLayout = (): ReactElement => {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset>
+      <SidebarInset className="bg-inherit">
         <Header />
 
-        <main className="max-w-full px-4">
+        <div className="max-w-full px-4">
           <Outlet />
-        </main>
+        </div>
       </SidebarInset>
     </SidebarProvider>
   );
