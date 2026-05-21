@@ -14,6 +14,7 @@ export const useGetAllTimelines = () => {
       (await getAllTimelines()) as unknown as Promise<
         Array<GetAllTimelinesResponse>
       >,
-    staleTime: 1000 * 60 * 5,
+    staleTime: 1000 * 60 * 2,
+    refetchInterval: 1000 * 60 * 2,
   });
 };
